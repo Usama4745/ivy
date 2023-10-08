@@ -885,3 +885,6 @@ class Tensor:
     def gather_(self, y, name=None):
         res = self.gather(self, y)
         return ivy.inplace_update(self, res)
+
+    def take_along_axis(self, indices, axis=None):
+        return paddle_frontend.take_along_axis(self.ivy_array, indices, axis=axis)
